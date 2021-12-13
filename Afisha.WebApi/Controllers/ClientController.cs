@@ -35,7 +35,7 @@ namespace Afisha.WebApi.Controllers
         }
 
         [HttpPost("CreateRnd")]
-        public async Task<IActionResult> CreateRandom(int count, [FromForm] CreateClientRandom createClientRandom)
+        public async Task<ActionResult> CreateRandom(int count, [FromForm] CreateClientRandom createClientRandom)
         {
             int i = 0;
             while (i < count)
@@ -60,7 +60,41 @@ namespace Afisha.WebApi.Controllers
                 i++;
             }
                
-            return NoContent();
+            return Ok();
+        }
+
+        [HttpPost("CreateRndMaleCount")]
+        public async Task<ActionResult> CreateMaleCountRandom(int count)
+        {
+            int i = 0;
+            while (i < count)
+            {
+                var clientDto = CreateClientFactory.CreateMale();
+                var command = _mapper.Map<CreateClientCommand>(clientDto);
+
+                await Mediator.Send(command);
+
+                i++;
+            }
+
+            return Ok();
+        }
+
+        [HttpPost("CreateRndFemaleCount")]
+        public async Task<ActionResult> CreateFemaleCountRandom(int count)
+        {
+            int i = 0;
+            while (i < count)
+            {
+                var clientDto = CreateClientFactory.CreateFemale();
+                var command = _mapper.Map<CreateClientCommand>(clientDto);
+
+                await Mediator.Send(command);
+
+                i++;
+            }
+
+            return Ok();
         }
     }
 }
