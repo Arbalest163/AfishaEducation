@@ -1,4 +1,5 @@
-﻿using Afisha.Application.EventCategories.Commands.CreateEventCategory;
+﻿using Afisha.Application.Common.Mappings;
+using Afisha.Application.EventCategories.Commands.CreateEventCategory;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Afisha.WebApi.Models
 {
-    public class CreateEventCategoryDto
+    public class CreateEventCategoryDto : IMapWith<CreateEventCategoryCommand>
     {
         [Required]
         public string Name { get; set; }

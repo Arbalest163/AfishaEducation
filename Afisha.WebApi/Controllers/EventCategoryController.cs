@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Afisha.WebApi.Controllers
 {
+    [Route("api/[controller]")]
     public class EventCategoryController : BaseController
     {
         private readonly IMapper _mapper;

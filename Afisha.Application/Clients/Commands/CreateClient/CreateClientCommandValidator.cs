@@ -12,7 +12,7 @@ namespace Afisha.Application.Clients.Commands.CreateClient
             RuleFor(c => c.Birthday).NotEmpty();
             RuleFor(c => c.Email).EmailAddress();
             RuleFor(c => c.PhoneNumber).Must(IsPhoneValid)
-                .Length(11)
+                .Length(12)
                 .WithMessage("Длина должна быть от {MinLength} до {MaxLength}." +
                             " Текущая длина: {TotalLength}");
         }
@@ -20,7 +20,7 @@ namespace Afisha.Application.Clients.Commands.CreateClient
         private bool IsPhoneValid(string phone)
         {
             if(phone != null)
-            return phone.Substring(0).All(c => char.IsDigit(c));
+            return phone.Substring(1).All(c => char.IsDigit(c));
             return true;
         }
     }

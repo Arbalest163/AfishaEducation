@@ -28,7 +28,8 @@ namespace Afisha.WebApi
                 FirstName = GetMaleName(),
                 LastName = GetMaleLastName(),
                 MiddleName = GetMaleMiddleName(),
-                Birthday = GetBirthday()
+                Birthday = GetBirthday(),
+                PhoneNumber = GetNumberPhone()
             };
 
             return client;
@@ -111,22 +112,11 @@ namespace Afisha.WebApi
 
         private static DateTime GetBirthday()
         {
-            var birthday = new List<DateTime>()
-            {
-                new DateTime(1989,11,06),
-                new DateTime(1990,10,07),
-                new DateTime(1991,9,08),
-                new DateTime(1992,8,09),
-                new DateTime(1993,7,10),
-                new DateTime(1988,6,11),
-                new DateTime(1987,5,12),
-                new DateTime(1986,4,13),
-                
-            };
+            var start = new DateTime(1950, 1, 1);
+            var gen = new Random();
+            var range = (DateTime.Today - start).Days;
 
-            var rnd = new Random().Next(0, birthday.Count);
-
-            return birthday[rnd];
+            return start.AddDays(gen.Next(range));
         }
 
         private static string GetFemaleName()
@@ -190,6 +180,15 @@ namespace Afisha.WebApi
             var rnd = new Random().Next(0, middleNames.Count);
 
             return middleNames[rnd];
+        }
+
+        private static string GetNumberPhone()
+        {
+            var rnd1 = new Random().Next(1000, 9999);
+            var rnd2 = new Random().Next(1111111, 9999999);
+
+            return "+" + rnd1.ToString() + rnd2.ToString();
+
         }
 
     }
