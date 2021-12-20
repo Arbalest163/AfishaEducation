@@ -10,6 +10,7 @@ namespace Afisha.Domain
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public Guid EventId { get; set; }
         public ICollection<Event> Event { get; set; }
     }
 }

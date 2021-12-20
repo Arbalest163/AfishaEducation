@@ -10,6 +10,7 @@ namespace Afisha.Application.Events.Commands
     public class CreateEventCommand : IRequest<Guid>
     {
         public string Title { get; set; }
+        public Guid EventCategoryId { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
         public DateTime TimeEvent { get; set; }
@@ -19,6 +20,5 @@ namespace Afisha.Application.Events.Commands
         public string Description { get; set; }
         public byte AgeRestriction { get; set; }
         public ushort MaxCountTicket { get; set; }
-        public ushort CountTicketSold { get; set; }
     }
 }

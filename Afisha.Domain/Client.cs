@@ -12,6 +12,7 @@ namespace Afisha.Domain
         public DateTime Birthday { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+        public Guid TicketId { get; set; }
         public ICollection<Ticket> Tickets { get; set; }
     }
 }

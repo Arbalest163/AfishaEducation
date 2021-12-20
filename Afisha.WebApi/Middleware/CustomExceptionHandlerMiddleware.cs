@@ -39,6 +39,9 @@ namespace Afisha.WebApi.Middleware
                 case NotFoundException:
                     code = HttpStatusCode.NotFound;
                     break;
+                case ExcessException:
+                    code = HttpStatusCode.BadRequest;
+                    break;
             }
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;

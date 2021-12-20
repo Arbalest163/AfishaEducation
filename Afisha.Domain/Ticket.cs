@@ -10,9 +10,10 @@ namespace Afisha.Domain
     {
         public Guid Id { get; set; }
         public uint Price { get; set; }
+        public DateTime DateEvent { get; set; }
         public Guid ClientId { get; set; }
-        public Client Client { get; set; }
+        public ICollection<Client> Client { get; set; }
         public Guid EventId { get; set; }
-        public Event Event { get; set; }
+        public ICollection<Event> Event { get; set; }
     }
 }

@@ -16,6 +16,8 @@ namespace Afisha.Persistence.EntityTypeConfigurations
             builder.Property(c => c.MiddleName).HasMaxLength(20);
             builder.Property(c => c.Birthday).IsRequired();
             builder.Property(c => c.Birthday).HasColumnType("date");
+
+            builder.HasMany(c => c.Tickets).WithMany(c => c.Client);
         }
 
     }

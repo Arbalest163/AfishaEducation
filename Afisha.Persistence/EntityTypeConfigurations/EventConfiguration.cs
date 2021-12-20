@@ -11,10 +11,9 @@ namespace Afisha.Persistence.EntityTypeConfigurations
             builder.ToTable("events");
             builder.HasKey(c => c.Id);
             builder.HasIndex(c => c.Id).IsUnique();
-            builder.HasIndex(e => e.Title).IsUnique();
             builder.Property(e => e.Title).HasMaxLength(20).IsRequired();
-            builder.Property(e => e.Country).HasMaxLength(30).HasDefaultValue("РФ").IsRequired();
-            builder.Property(e => e.City).HasMaxLength(30).HasDefaultValue("Самара").IsRequired();
+            builder.Property(e => e.Country).HasMaxLength(30).HasDefaultValue("РФ");
+            builder.Property(e => e.City).HasMaxLength(30).HasDefaultValue("Самара");
             builder.Property(e => e.Place).HasMaxLength(50).IsRequired();
             builder.Property(e => e.Description).HasColumnType("text");
             builder.Property(e => e.MaxCountTicket).HasColumnType("smallint").IsRequired();

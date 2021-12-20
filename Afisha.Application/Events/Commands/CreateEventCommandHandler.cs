@@ -24,6 +24,7 @@ namespace Afisha.Application.Events.Commands
             {
                 Id = Guid.NewGuid(),
                 Title = request.Title,
+                EventCategoryId = request.EventCategoryId,
                 DateStart = request.DateStart,
                 DateEnd = request.DateEnd,
                 Country = request.Country,
@@ -31,8 +32,7 @@ namespace Afisha.Application.Events.Commands
                 Place = request.Place,
                 Description = request.Description,
                 AgeRestriction = request.AgeRestriction,
-                MaxCountTicket = request.MaxCountTicket,
-                CountTicketSold = request.CountTicketSold
+                MaxCountTicket = request.MaxCountTicket
             };
 
             await _dbContext.Events.AddAsync(@event, cancellationToken);
